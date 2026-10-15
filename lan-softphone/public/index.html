@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ComunicaCess</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <main class="window" aria-label="LAN SIP">
+      <header class="titlebar"><img class="brand-logo" src="/assets/CESS.png" alt="" /><span class="brand-dot" aria-hidden="true"></span><strong>ComunicaCess</strong><span class="title-context">— Rede local</span></header>
+      <section id="setup" class="setup-panel">
+        <div class="welcome-brand" aria-label="Identidade ComunicaCess">
+          <img src="/assets/CESS.png" alt="CESS" />
+          <img src="/assets/UFF.png" alt="UFF" />
+          <img src="/assets/CNPQ.png" alt="CNPq" />
+          <img src="/assets/BRAZIL.webp" alt="Brasil" />
+        </div>
+        <p class="setup-title">Conectar à sala local</p>
+        <form id="join-form" class="setup-form">
+          <label>Nome<input id="name" maxlength="40" autocomplete="nickname" required placeholder="Seu nome" /></label>
+          <label>Sala<input id="room" maxlength="20" pattern="[A-Za-z0-9-]{4,20}" required placeholder="OFICINA-01" /></label>
+          <button type="submit">Entrar</button>
+        </form>
+        <div class="discovery-box">
+          <div class="discovery-title">Computadores encontrados na rede</div>
+          <div id="peer-list" class="peer-list"><span class="discovery-empty">Procurando dispositivos...</span></div>
+        </div>
+        <p id="setup-message" class="message" role="status"></p>
+      </section>
+      <section id="phone" class="phone hidden">
+        <nav class="tabs" role="tablist" aria-label="Áreas do aplicativo">
+          <button class="tab active" data-tab="telephone" role="tab" aria-selected="true">Telefone</button>
+          <button class="tab" data-tab="logs" role="tab" aria-selected="false">Registros</button>
+          <button class="tab" data-tab="contacts" role="tab" aria-selected="false">Contatos</button>
+          <button id="menu-button" class="tab-menu" type="button" aria-label="Mais opções">⌄</button>
+        </nav>
+        <section id="telephone" class="tab-panel active" role="tabpanel">
+          <input id="dial-input" class="dial-input" aria-label="Número ou sala" inputmode="tel" autocomplete="off" />
+          <div class="dialpad" aria-label="Teclado numérico">
+            <button data-dial="1">1</button><button data-dial="2"><b>2</b><small>ABC</small></button><button data-dial="3"><b>3</b><small>DEF</small></button>
+            <button data-dial="4"><b>4</b><small>GHI</small></button><button data-dial="5"><b>5</b><small>JKL</small></button><button data-dial="6"><b>6</b><small>MNO</small></button>
+            <button data-dial="7"><b>7</b><small>PQRS</small></button><button data-dial="8"><b>8</b><small>TUV</small></button><button data-dial="9"><b>9</b><small>WXYZ</small></button>
+            <button data-dial="*">*</button><button data-dial="0">0</button><button data-dial="#">#</button>
+          </div>
+          <div class="quick-actions"><button data-action="recent">R</button><button data-dial="+">+</button><button data-action="clear">C</button></div>
+          <div class="call-row"><button id="call" type="button" class="call-button" disabled>Chamar</button><button id="message-button" type="button" class="message-button" aria-label="Mensagens">▱</button></div>
+          <div class="level-row"><button type="button" class="level-icon" aria-label="Volume">◖</button><span>−</span><input id="output-level" type="range" min="0" max="100" value="85" /><span>+</span></div>
+          <div class="level-row"><button type="button" class="level-icon" aria-label="Microfone">♩</button><span>−</span><input id="input-level" type="range" min="0" max="100" value="85" /><span>+</span></div>
+          <div class="feature-row"><button type="button">DND</button><button type="button">AA</button><button type="button">CONF</button><button type="button">REC</button></div>
+        </section>
+        <section id="logs" class="tab-panel" role="tabpanel" hidden>
+          <div class="list-header"><span>Nome</span><span>Número</span></div>
+          <div id="log-list" class="data-list"><div class="data-row"><span class="incoming">↗</span><span>Laboratório</span><span>LAN-01</span></div><div class="data-row"><span class="outgoing">↙</span><span>Aguardando chamadas</span><span>—</span></div></div>
+          <div class="search-row"><span>⌕</span><input aria-label="Pesquisar registros" placeholder="Pesquisar" /></div>
+        </section>
+        <section id="contacts" class="tab-panel" role="tabpanel" hidden>
+          <div class="list-header"><span>Nome</span><span>Número</span></div>
+          <div id="contact-list" class="data-list"><span class="discovery-empty">Nenhum dispositivo descoberto.</span></div>
+          <div class="search-row"><span>⌕</span><input aria-label="Pesquisar contatos" placeholder="Pesquisar" /></div>
+        </section>
+        <footer class="statusbar"><span class="online-dot"></span><span id="status">Online</span><span id="room-status">LAN</span></footer>
+        <p id="message" class="message" role="status"></p>
+      </section>
+    </main>
+    <script type="module" src="/app.js"></script>
+  </body>
+</html>

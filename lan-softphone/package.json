@@ -1,0 +1,24 @@
+{
+  "name": "comunicacess",
+  "version": "0.1.0",
+  "private": true,
+  "description": "ComunicaCess: comunicação de áudio entre computadores e celulares na mesma rede.",
+  "type": "module",
+  "main": "electron/main.mjs",
+  "scripts": {
+    "start": "node server.mjs",
+    "dev": "node --watch server.mjs",
+    "desktop": "electron .",
+    "build:win": "electron-builder --win dir --publish never --config.directories.output=dist-green",
+    "build:win:portable": "electron-builder --win portable --publish never"
+  },
+  "dependencies": { "ws": "^8.18.0" },
+  "devDependencies": { "electron": "^38.2.0", "electron-builder": "^26.0.12" },
+  "build": {
+    "appId": "br.cess.comunicacess",
+    "productName": "ComunicaCess",
+    "asar": true,
+    "files": ["electron/**/*", "public/**/*", "server.mjs", "server-core.mjs", "package.json"],
+    "win": { "target": ["portable"] }
+  }
+}

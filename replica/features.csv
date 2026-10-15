@@ -1,0 +1,17 @@
+feature,area,priority,original,clone,notes
+Conta SIP configurável,account,must,observado/inferido,no,servidor de laboratório
+Registro e estado online,account,must,observado/inferido,no,não exibir segredo
+Discador,calling,must,observado/inferido,no,validar número/URI
+Chamada de áudio,calling,must,observado/inferido,no,vertical slice
+Atender rejeitar desligar,calling,must,observado/inferido,no,estados explícitos
+Mudo e volume,audio,must,observado/inferido,no,dispositivos de entrada e saída
+Espera e retomada,calling,should,observado/inferido,no,depende do servidor SIP
+Contatos,contacts,should,observado/inferido,no,persistência própria
+Histórico de chamadas,history,must,observado,no,não importar call_log.db
+Busca no histórico,history,should,inferido,no,filtro local
+Reconexão após perda de rede,reliability,must,inferido,no,backoff e estado visível
+Notificações,ui,should,inferido,no,sem vazar dados
+Atalhos,ui,could,inferido,no,acessibilidade
+Vídeo,advanced,could,inferido,no,fora do MVP
+Gravação,advanced,could,inferido,no,consentimento e retenção
+Migração de perfil MicroSIP,interop,skip,local,skip,transporta dados sensíveis

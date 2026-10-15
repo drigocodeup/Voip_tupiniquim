@@ -1,0 +1,7 @@
+lan-softphone/node_modules/
+lan-softphone/dist*/
+lan-softphone/*.zip
+lan-softphone/*.log
+lan-softphone/.env
+lan-softphone/.env.*
+*.log
